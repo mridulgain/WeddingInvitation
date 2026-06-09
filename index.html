@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M & M - The Wedding Celebration</title>
+    <!-- Google Fonts for Elegant Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #d4af37; /* Elegant Gold */
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-creme: #fffdf9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-creme);
+            color: var(--text-dark);
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(255, 253, 249, 0.8), rgba(255, 253, 249, 0.8)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920') no-repeat center center/cover;
+            padding: 20px;
+        }
+
+        .initials {
+            font-family: 'Alex Brush', cursive;
+            font-size: 7rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        /* Countdown Timer */
+        .countdown-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            min-width: 80px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .time-box label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Alex Brush', cursive;
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            width: 100px;
+            height: 1px;
+            background-color: var(--primary-color);
+            margin: 0 auto 40px auto;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '♥';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-creme);
+            padding: 0 10px;
+            color: var(--primary-color);
+        }
+
+        /* Events Cards */
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .event-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-card h3 {
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            color: var(--text-dark);
+        }
+
+        .event-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .initials { font-size: 5rem; }
+            .countdown-container { gap: 10px; }
+            .time-box { padding: 10px 15px; min-width: 65px; }
+            .time-box span { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero / Welcome Section -->
+    <header>
+        <div class="initials">M & M</div>
+        <h1>Are Getting Married</h1>
+        <p class="tagline">Save the Date to celebrate love, laughter, and happily ever after.</p>
+        
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+            <div class="time-box">
+                <span id="days">00</span>
+                <label>Days</label>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <label>Hours</label>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <label>Mins</label>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <label>Secs</label>
+            </div>
+        </div>
+    </header>
+
+    <!-- Our Story Section -->
+    <section id="story">
+        <h2 class="section-title">Our Story</h2>
+        <div class="divider"></div>
+        <p style="line-height: 1.8; max-width: 600px; margin: 0 auto; color: var(--text-light);">
+            True love stories never have endings, but they do have beautiful beginnings. 
+            We invite you to join us as we step into this beautiful journey together. 
+            Your presence and blessings mean the world to us as we exchange our vows.
+        </p>
+    </section>
+
+    <!-- Events Details Section -->
+    <section id="events" style="background-color: #fbf9f4;">
+        <h2 class="section-title">The Wedding Events</h2>
+        <div class="divider"></div>
+        
+        <div class="event-grid">
+            <!-- Event 1 -->
+            <div class="event-card">
+                <h3>The Ceremony</h3>
+                <p><strong>Date:</strong> December 18, 2026</p>
+                <p><strong>Time:</strong> 10:00 AM onwards</p>
+                <p><strong>Venue:</strong> The Grand Palace Resort, Hall A</p>
+            </div>
+            
+            <!-- Event 2 -->
+            <div class="event-card">
+                <h3>The Reception</h3>
+                <p><strong>Date:</strong> December 18, 2026</p>
+                <p><strong>Time:</strong> 7:00 PM onwards</p>
+                <p><strong>Venue:</strong> The Royal Lawns & Gardens</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Celebrating the union of M & M</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">&copy; 2026 Made with ♥ for M&M's Wedding</p>
+    </footer>
+
+    <!-- Countdown Timer Script -->
+    <script>
+        // Set your target wedding date here (YYYY-MM-DDTHH:MM:SS)
+        const weddingDate = new Date("December 18, 2026 10:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display results
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            // If countdown is finished
+            if (distance < 0) {
+                clearInterval(timer);
+                document.querySelector(".countdown-container").innerHTML = "<h3 style='color:var(--primary-color); letter-spacing:2px;'>The Celebration Has Begun!</h3>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
